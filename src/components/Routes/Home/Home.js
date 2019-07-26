@@ -8,6 +8,10 @@ componentDidMount(){
   this.props.dispatch({type: 'FETCH_MOVIES'});
 }
 
+nextPage = () => {
+  this.props.history.push('/details')
+}
+
   render() {
     return (
      <> 
@@ -19,7 +23,7 @@ componentDidMount(){
         {this.props.reduxStore.movieList.map(item => {
           return(
             <div className = "movieImage" key={item.id}>
-            <img src={item.poster} alt=""/> 
+            <img src={item.poster} alt="" onClick ={this.nextPage}/> 
             
             <p>{item.title}</p>
     
