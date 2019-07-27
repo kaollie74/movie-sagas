@@ -9,25 +9,33 @@ class Details extends Component {
   // Renders the entire app on the DOM
 
 
-
+goBackHome = () => {
+  console.log('in go Back Home Function');
+  this.props.history.push('/')
+}
 
   render() {
 
     let info = this.props.reduxStore.movieDetails;
 
     return (
-
-      
-      <div className="App">
-        <p>This is Details Page</p>
-         <p>Title: {info.title}</p>
-
-      <p>{info.description}</p>
-     
-      
-      <p>GENRE: {info.name}</p>
+      <>
+        <div>
+          <button onClick = {this.goBackHome}>Back To List</button>
+          <button>Edit</button>
+        </div>
         
-      </div>
+        <div className="App">
+          <p>This is Details Page</p>
+          <p>Title: {info.title}</p>
+
+        <p>{info.description}</p>
+      
+        
+        <p>GENRE: {info.name}</p>
+          
+        </div>
+     </>   
     );
   }
 }
