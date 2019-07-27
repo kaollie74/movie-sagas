@@ -3,9 +3,9 @@ import './App.css';
 import {HashRouter as Router, Route} from 'react-router-dom';
 
 // Routes
-import Home from '../Routes/Home/Home';
-import Details from '../Routes/Details/Details';
-import EditPage from '../Routes/EditPage/EditPage';
+import Home from '../Home/Home';
+import Details from '../Details/Details';
+import EditPage from '../EditPage/EditPage';
 
 
 class App extends Component {

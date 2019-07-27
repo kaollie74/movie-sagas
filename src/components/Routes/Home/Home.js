@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import '../App/App.css'
 
 
 class Home extends Component {
@@ -8,7 +9,11 @@ componentDidMount(){
   this.props.dispatch({type: 'FETCH_MOVIES'});
 }
 
-nextPage = () => {
+nextPage = (item) => {
+  console.log('in nextPage', item.id)
+
+  this.props.dispatch({type: 'FETCH_DETAILS' , payload: item. id})
+
   this.props.history.push('/details')
 }
 
@@ -19,11 +24,11 @@ nextPage = () => {
         <p>This is Home Page</p>
       </div>
 
-      <div className='container'>
+      <div>
         {this.props.reduxStore.movieList.map(item => {
           return(
             <div className = "movieImage" key={item.id}>
-            <img src={item.poster} alt="" onClick ={this.nextPage}/> 
+            <img src={item.poster} alt="" onClick = { (event) => this.nextPage(item)}/> 
             
             <p>{item.title}</p>
     

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './components/App/App.js';
+import App from './components/Routes/App/App.js';
 import registerServiceWorker from './registerServiceWorker';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 // Provider allows us to use redux within our react app
@@ -12,10 +12,15 @@ import Axios from "axios";
 // Import saga middleware
 import createSagaMiddleware from 'redux-saga';
 
-// Create the rootSaga generator function
+// Create sagaMiddleware
+const sagaMiddleware = createSagaMiddleware();
+
+
+/***************************************** ROOT SAGA *******************************/
 function* rootSaga() {
 
     yield takeEvery('FETCH_MOVIES', fetchMovies)
+    yield takeEvery('FETCH_DETAILS', fetchDetails)
 
 }
 
@@ -32,8 +37,20 @@ function* fetchMovies () {
     }
 } // end of FETCH MOVIES
 
-// Create sagaMiddleware
-const sagaMiddleware = createSagaMiddleware();
+/******************************************* FETCH DETAILS **********************************/
+function* fetchDetails (action){
+    try{
+       
+        const response = yield Axios.get(`/movies/${action.payload}`)
+        yield put ({type: 'SET_MOVIE_DETAILS', payload: response.data })
+    } 
+    catch(error){
+        console.log('Error (index.js) retrieving from SERVER IN FETCH DETAILS', error);
+        
+    }
+}
+
+
 
 // Used to store movies returned from the server
 const movieList = (state = [], action) => {
@@ -55,11 +72,20 @@ const genreList = (state = [], action) => {
     }
 }
 
+const movieDetails = (state = {}, action) =>{
+    if (action.type === 'SET_MOVIE_DETAILS'){
+        return action.payload;
+    }
+    return state;
+
+}
+
 // Create one store that all components can use
 const storeInstance = createStore(
     combineReducers({
         movieList,
         genreList,
+        movieDetails
     }),
     // Add sagaMiddleware to our store
     applyMiddleware(sagaMiddleware, logger),
