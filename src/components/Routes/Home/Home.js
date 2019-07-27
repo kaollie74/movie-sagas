@@ -12,7 +12,7 @@ componentDidMount(){
 nextPage = (item) => {
   console.log('in nextPage', item.id)
 
-  this.props.dispatch({type: 'FETCH_DETAILS' , payload: item. id})
+  this.props.dispatch({type: 'FETCH_DETAILS' , payload: item.id})
 
   this.props.history.push('/details')
 }

@@ -7,7 +7,7 @@ class EditPage extends Component {
   // Renders the entire app on the DOM
 
   state = {
-    id: this.props.reduxStore.movieDetails,
+    id: this.props.reduxStore.movieDetails.id,
     name: '',
     description: '',
   }
@@ -30,7 +30,8 @@ class EditPage extends Component {
 
   handleSubmit = () => {
     console.log('in Handle Submit');
-      this.props.dispatch({type: 'UPDATE_DESCRIPTION', payload: this.state})
+      this.props.dispatch({type: 'UPDATE_DETAILS', payload: this.state})
+      this.props.history.push('/details')
   }
 
 
@@ -40,7 +41,7 @@ class EditPage extends Component {
 
   render() {
 
-    console.log(this.state);
+    console.log(this.props.reduxStore.movieDetails);
     
     return (
       <div className="App">

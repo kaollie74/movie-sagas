@@ -41,6 +41,22 @@ router.get('/:id', (req, res)=> {
   
 })
 
+router.put('/update/:id', (req,res)=> {
+  console.log('In PUT ROUTER------------------------------------', req.body)
+  const sqlText = `UPDATE "movies" SET "title" = $1,"description" = $2 WHERE "id" = $3;`;
+  values = [req.body.name, req.body.description, req.body.id]
+pool.query(sqlText, values)
+  .then((response)=> {
+    res.sendStatus(200);
+  })
+  .catch((error)=> {
+    console.log('Error with UPDATING the DATABASE');
+    res.sendStatus(500);
+    
+  })
+
+})
+
 
 
 module.exports = router;

@@ -21,10 +21,11 @@ function* rootSaga() {
 
     yield takeEvery('FETCH_MOVIES', fetchMovies)
     yield takeEvery('FETCH_DETAILS', fetchDetails)
+    yield takeEvery('UPDATE_DETAILS', updateDetails)
 
 }
 
-/***************************************** FETCH MOVIES *************************/
+/***************************************** FETCH MOVIES *****************************/
 function* fetchMovies () {
 
     try{
@@ -46,6 +47,17 @@ function* fetchDetails (action){
     } 
     catch(error){
         console.log('Error (index.js) retrieving from SERVER IN FETCH DETAILS', error);
+        
+    }
+}
+
+function* updateDetails(action){
+    try {
+        yield Axios.put(`movies/update/${action.payload.id}`, action.payload);
+        yield put ({type: 'FETCH_MOVIES'})
+    }
+    catch (error){
+        console.log('ERROR, Updating Movies', error);
         
     }
 }

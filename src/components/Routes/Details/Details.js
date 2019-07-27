@@ -32,11 +32,8 @@ handleEdit = () => {
         <div className="App">
           <p>This is Details Page</p>
           <p>Title: {info.title}</p>
-
-        <p>{info.description}</p>
-      
-        
-        <p>GENRE: {info.name}</p>
+          <p>{info.description}</p>
+          <p>GENRE: {info.name}</p>
           
         </div>
      </>   
