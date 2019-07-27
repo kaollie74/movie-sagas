@@ -14,6 +14,10 @@ goBackHome = () => {
   this.props.history.push('/')
 }
 
+handleEdit = () => {
+  this.props.history.push('/EditPage')
+}
+
   render() {
 
     let info = this.props.reduxStore.movieDetails;
@@ -22,7 +26,7 @@ goBackHome = () => {
       <>
         <div>
           <button onClick = {this.goBackHome}>Back To List</button>
-          <button>Edit</button>
+          <button onClick = {this.handleEdit}>Edit</button>
         </div>
         
         <div className="App">
