@@ -1,7 +1,17 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import { withStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 
 
+const styles = theme => ({
+  button: {
+    margin: theme.spacing.unit,
+  },
+  input: {
+    display: 'none',
+  },
+});
 
 
 
@@ -22,14 +32,15 @@ handleEdit = () => {
 }
 
   render() {
+     const { classes } = this.props;
 
     let info = this.props.reduxStore.movieDetails;
 
     return (
       <>
         <div>
-          <button onClick = {this.goBackHome}>Back To List</button>
-          <button onClick = {this.handleEdit}>Edit</button>
+          <Button variant="contained" color= "secondary" className={classes.button} onClick = {this.goBackHome}>Back To List</Button>
+          <Button variant="contained" color= "primary" className = {classes.button} onClick = {this.handleEdit}>Edit</Button>
         </div>
         
         <div className="App">
@@ -52,4 +63,4 @@ const mapsTOProps = (reduxStore) => ({
   reduxStore
 })
 
-export default connect(mapsTOProps)(Details);
+export default withStyles(styles)(connect(mapsTOProps)(Details));

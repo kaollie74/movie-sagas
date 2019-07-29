@@ -1,10 +1,24 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import { withStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 
+
+
+const styles = theme => ({
+  button: {
+    margin: theme.spacing.unit,
+  },
+  input: {
+    display: 'none',
+  },
+});
 
 
 class EditPage extends Component {
   // Renders the entire app on the DOM
+
+  
 
   state = {
     id: this.props.reduxStore.movieDetails.id,
@@ -13,6 +27,7 @@ class EditPage extends Component {
   }
 
   handleBackToDetails = () => {
+
     this.props.history.push('/details')
   }
 
@@ -36,23 +51,24 @@ class EditPage extends Component {
 
 
 
-
-
-
   render() {
 
-    console.log(this.props.reduxStore.movieDetails);
+  const { classes } = this.props;
+
+  let movie = this.props.reduxStore.movieDetails;
+
+  
     
     return (
       <div className="App">
-        <p>This is Edit Page</p>
+        <h1>Edit: {movie.title}</h1>
          <>
           <div>
-            <button onClick={this.handleBackToDetails}>Cancel</button>
+            <Button variant="contained" color="secondary" className= {classes.button} onClick={this.handleBackToDetails}>Cancel</Button>
             
             <input type='text' placeholder='title' value={this.state.name} onChange={ (event) => this.handleChangeFor('name', event)}/>
-            <input type='text'  value={this.state.description} onChange={ (event) => this.handleChangeFor('description', event)}/>
-            <button onClick={this.handleSubmit}>Save</button>
+            <textarea type='text'  value={this.state.description} onChange={ (event) => this.handleChangeFor('description', event)}/>
+            <Button variant="contained" color="primary" className= {classes.button} onClick={this.handleSubmit}>Save</Button>
           </div>
         </>
       </div>
@@ -64,4 +80,4 @@ const mapsToProps = (reduxStore) => ({
   reduxStore
 })
 
-export default connect(mapsToProps)(EditPage);
+export default withStyles(styles)(connect(mapsToProps)(EditPage));

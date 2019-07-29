@@ -34,8 +34,9 @@ nextPage = (item) => {
         {this.props.reduxStore.movieList.map(item => {
           return(
             <div className = "movieImage" key={item.id}>
-              <img src={item.poster} alt="" onClick = { (event) => this.nextPage(item)}/> 
-              <p>{item.title}</p>
+              <p className = "movieTitle">{item.title}</p>
+              <img className ="imageDisplay"src={item.poster} alt="" onClick = { (event) => this.nextPage(item)}/> 
+              
               <p>{item.description}</p>
             </div>
           ) // end return 

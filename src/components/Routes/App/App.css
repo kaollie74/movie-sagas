@@ -3,9 +3,7 @@
 
   
 }
-body {
-  background-color: gray;
-}
+
 
 
 .App-header {
@@ -23,6 +21,15 @@ body {
   font-size: large;
 }
 
+body {
+  background-color: gray;
+}
+
+.imageDisplay {
+  margin-top: 10px;
+  padding-top: 10px;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
@@ -36,6 +43,12 @@ max-height: 700px;
 border: solid black 2px;
 padding-bottom: 20px;
 background-color: skyblue
+}
+
+.movieTitle {
+  font-size: 25px;
+  font-weight: 900;
+  font-style: oblique
 }
 
 .detailDescription {
