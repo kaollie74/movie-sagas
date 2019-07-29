@@ -30,7 +30,7 @@ Postgresql
 - [Redux ]
 
 ## Screen Shot
-![movieHomePage](/images/movieHomePage.jpg)
+![movieHomePage](public/images/movieHomePage.jpg)
 ![detailsPage](/images/detailsPage.jpg)
 ![EditPage](/images/EditPage.jpg)
 

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-
+import images from ''
 
 const styles = theme => ({
   button: {
@@ -51,7 +51,7 @@ handleEdit = () => {
             <p>{info.name}</p>
           <h1>Description</h1>
             <p className = 'detailDescription'>{info.description}</p>
-          
+          <img src="" alt="image"/>
           
         </div>
      </>   
