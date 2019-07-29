@@ -2,15 +2,25 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField'
 
 
 
 const styles = theme => ({
   button: {
-    margin: theme.spacing.unit,
+    margin: 25,
+    
   },
-  input: {
-    display: 'none',
+  container: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  textField: {
+    marginLeft: theme.spacing.unit,
+    marginRight: theme.spacing.unit,
+  },
+  dense: {
+    marginTop: 16,
   },
 });
 
@@ -66,8 +76,24 @@ class EditPage extends Component {
           <div>
             <Button variant="contained" color="secondary" className= {classes.button} onClick={this.handleBackToDetails}>Cancel</Button>
             
-            <input type='text' placeholder='title' value={this.state.name} onChange={ (event) => this.handleChangeFor('name', event)}/>
-            <textarea type='text'  value={this.state.description} onChange={ (event) => this.handleChangeFor('description', event)}/>
+            <TextField 
+              type='text' 
+              label='title' 
+              className={classes.textField} 
+              margin="normal" 
+              variant="outlined" 
+              value={this.state.name} 
+              onChange={ (event) => this.handleChangeFor('name', event)}
+            />
+            <TextField 
+              type='text' 
+              label='Description' 
+              className={classes.textField} 
+              margin="normal" 
+              variant="outlined"
+              value={this.state.description} 
+              onChange={ (event) => this.handleChangeFor('description', event)}
+            />
             <Button variant="contained" color="primary" className= {classes.button} onClick={this.handleSubmit}>Save</Button>
           </div>
         </>
