@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import {HashRouter as Router, Route} from 'react-router-dom';
 
-// Routes
+// Routes 
 import Home from '../Home/Home';
 import Details from '../Details/Details';
 import EditPage from '../EditPage/EditPage';
@@ -14,7 +14,7 @@ class App extends Component {
     return (
       <>
       <div className="App">
-        <p>This is App</p>
+       
 
       </div>
 

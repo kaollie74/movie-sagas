@@ -6,14 +6,17 @@ import {connect} from 'react-redux';
 
 
 class Details extends Component {
-  // Renders the entire app on the DOM
+ 
 
-
+// function runs 'history.push' which will go back to the Home page
+// where the list of movies resides. 
 goBackHome = () => {
   console.log('in go Back Home Function');
   this.props.history.push('/')
 }
 
+// function activates onClick where it will send the App
+// to the 'Edit Page'
 handleEdit = () => {
   this.props.history.push('/EditPage')
 }
@@ -30,10 +33,14 @@ handleEdit = () => {
         </div>
         
         <div className="App">
-          <p>This is Details Page</p>
-          <p>Title: {info.title}</p>
-          <p>{info.description}</p>
-          <p>GENRE: {info.name}</p>
+          
+          <h1>Title</h1>
+            <p> {info.title}</p>
+          <h1>Genre</h1>
+            <p>{info.name}</p>
+          <h1>Description</h1>
+            <p className = 'detailDescription'>{info.description}</p>
+          
           
         </div>
      </>   

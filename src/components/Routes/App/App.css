@@ -1,6 +1,10 @@
 .App {
   text-align: center;
+
   
+}
+body {
+  background-color: gray;
 }
 
 
@@ -31,4 +35,10 @@ max-width: 700px;
 max-height: 700px;
 border: solid black 2px;
 padding-bottom: 20px;
+background-color: skyblue
+}
+
+.detailDescription {
+  display: inline-block;
+  max-width: 800px;
 }
