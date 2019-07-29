@@ -31,8 +31,8 @@ Postgresql
 
 ## Screen Shot
 ![movieHomePage](public/images/movieHomePage.jpg)
-![detailsPage](/images/detailsPage.jpg)
-![EditPage](/images/EditPage.jpg)
+![detailsPage](public/images/detailsPage.jpg)
+![EditPage](public/images/EditPage.jpg)
 
 
 
