@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import images from ''
+//import images from ''
 
 const styles = theme => ({
   button: {
@@ -59,8 +59,8 @@ handleEdit = () => {
   }
 }
 
-const mapsTOProps = (reduxStore) => ({
+const mapsToProps = (reduxStore) => ({
   reduxStore
 })
 
-export default withStyles(styles)(connect(mapsTOProps)(Details));
+export default withStyles(styles)(connect(mapsToProps)(Details));
