@@ -35,15 +35,13 @@ body {
   to { transform: rotate(360deg); }
 }
 
-.movieImage{
-margin: auto;  
+.movieImage{ 
+margin-left: 1vh; 
+margin-top: 1vh; 
 text-align: center;
-min-width: 700px;
-max-width: 700px;
-min-height: 700px;
-max-height: 700px;
+width: 80vh;
+height: 80vh;
 border: solid black 2px;
-padding-bottom: 20px;
 background-color: skyblue
 }
 
@@ -55,20 +53,23 @@ background-color: skyblue
 
 .detailDescription {
   display: inline-block;
-  max-width: 800px;
+  justify-content: center;
+  width: 100px;
+  padding-right: 70vh;
 }
 
 .movieDescription {
   display: inline-block;
   flex-wrap: wrap;
   text-align: center;
+  word-wrap: bre;
 }
 
  .movieContainer {
    display: flex;
    flex-direction: row;
    flex-wrap: wrap;
-   justify-content: center;
+   justify-content: space-around;
    align-items: center;
 
  }
