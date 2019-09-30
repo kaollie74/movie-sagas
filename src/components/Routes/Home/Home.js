@@ -62,7 +62,7 @@ class Home extends Component {
                   />
 
                   <Card.Description>
-                     <h5> {item.description}</h5>
+                     <h5 style={{wordBreak: 'break-word', hyphens: 'auto'}}> {item.description}</h5>
                   </Card.Description>
 
 
