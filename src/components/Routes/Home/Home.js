@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Button, Card, Container, Image } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 import '../App/App.css';
+//import './Home.css';
 
 
 
@@ -67,7 +68,7 @@ class Home extends Component {
 
                 </Card.Content>
                 <div className='button'>
-                <Button>Read</Button>
+                <Button onClick={(event) => this.nextPage(item)}>Read</Button>
                 </div>
               </Card>
             ) // end return 
