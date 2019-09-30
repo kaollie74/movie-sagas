@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import { Item } from 'semantic-ui-react';
 //import images from ''
 
 const styles = theme => ({
@@ -16,45 +17,59 @@ const styles = theme => ({
 
 
 class Details extends Component {
- 
 
-// function runs 'history.push' which will go back to the Home page
-// where the list of movies resides. 
-goBackHome = () => {
-  console.log('in go Back Home Function');
-  this.props.history.push('/')
-}
 
-// function activates onClick where it will send the App
-// to the 'Edit Page'
-handleEdit = () => {
-  this.props.history.push('/EditPage')
-}
+  // function runs 'history.push' which will go back to the Home page
+  // where the list of movies resides. 
+  goBackHome = () => {
+    console.log('in go Back Home Function');
+    this.props.history.push('/')
+  }
+
+  // function activates onClick where it will send the App
+  // to the 'Edit Page'
+  handleEdit = () => {
+    this.props.history.push('/EditPage')
+  }
 
   render() {
-     const { classes } = this.props;
+    const { classes } = this.props;
 
     let info = this.props.reduxStore.movieDetails;
 
     return (
       <>
         <div>
-          <Button variant="contained" color= "secondary" className={classes.button} onClick = {this.goBackHome}>Back To List</Button>
-          <Button variant="contained" color= "primary" className = {classes.button} onClick = {this.handleEdit}>Edit</Button>
+          <Button
+            variant="contained"
+            color="secondary"
+            className={classes.button}
+            onClick={this.goBackHome}
+          >
+            Back To List
+          </Button>
+          <Button
+            variant="contained"
+            color="primary"
+            className={classes.button}
+            onClick={this.handleEdit}
+          >
+            Edit
+          </Button>
         </div>
-        
+
         <div className="App">
-          
+
           <h1>Title</h1>
-            <p> {info.title}</p>
+          <p> {info.title}</p>
           <h1>Genre</h1>
-            <p>{info.name}</p>
+          <h5>{info.genre_name}</h5>
           <h1>Description</h1>
-            <p className = 'detailDescription'>{info.description}</p>
-          <img src="" alt="image"/>
-          
+          <p className='detailDescription'>{info.description}</p>
+          <img src={info.poster} alt="image" />
+
         </div>
-     </>   
+      </>
     );
   }
 }
