@@ -14,7 +14,7 @@
 }
 
 .App-title {
-  font-size: 1.5em;
+  font-size: 1.5rem;
 }
 
 .App-intro {
@@ -24,10 +24,19 @@
 body {
   background-color: gray;
 }
+.button {
+  display: inline-flex;
+  justify-content: center;
+  padding-bottom: 2vh;
+ 
+}
 
 .imageDisplay {
+  display: inline-flex;
   margin-top: 10px;
   padding-top: 10px;
+  padding-bottom: 2vh;
+  margin-left: 28vh;
 }
 
 @keyframes App-logo-spin {
@@ -36,20 +45,20 @@ body {
 }
 
 .movieImage{ 
-margin-left: 1vh; 
-margin-top: 1vh; 
-text-align: center;
-width: 80vh;
+display: inline-block;
 height: 80vh;
+margin: center; 
+margin-top: 1vh; 
 border: solid black 2px;
 background-color: skyblue
 }
 
 .movieTitle {
   display: inline-block;
-  font-size: 25px;
+  font-size: 2rem;
   font-weight: 900;
-  font-style: oblique
+  font-style: oblique;
+  text-align: center;
 }
 
 .detailDescription {

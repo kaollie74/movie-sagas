@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { Card, Image } from 'semantic-ui-react';
+import { Button, Card, Container, Image } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 import '../App/App.css';
 
@@ -40,30 +40,42 @@ class Home extends Component {
               <Card
                 className="movieImage"
                 key={item.id}
-                style={{backgroundColor: 'skyblue'}}
+                style={{ backgroundColor: 'skyblue', width: '80vh' }}
               >
+
                 <Card.Content>
-                  <Card.Header className='movieTitle'>
+
+                  <Card.Header
+                    className='movieTitle'
+                  >
                     {item.title}
                   </Card.Header>
+
                   <Image
-                    className="imageDisplay"
+                    className='imageDisplay'
                     src={item.poster}
+                    size='small'
                     alt=""
                     onClick={(event) => this.nextPage(item)}
-                    wrapper ui = {false}
+                    
                   />
 
                   <Card.Description>
-                    {/* {item.description} */}
+                     <h5> {item.description}</h5>
                   </Card.Description>
 
+
                 </Card.Content>
+                <div className='button'>
+                <Button>Read</Button>
+                </div>
               </Card>
             ) // end return 
 
           })}
         </div>
+
+
       </>
 
     );
