@@ -53,8 +53,16 @@ function* fetchDetails (action){
 
 function* updateDetails(action){
     try {
+        
+        console.log(action.payload);
+        
         yield Axios.put(`movies/update/${action.payload.id}`, action.payload);
-        yield put ({type: 'FETCH_MOVIES'})
+
+        console.log('this is action.payload in updateDetails', action.payload.id);
+
+        yield put ({type: 'FETCH_DETAILS', payload: action.payload.id});
+
+        yield put ({type: 'FETCH_MOVIES'});
     }
     catch (error){
         console.log('ERROR, Updating Movies', error);
