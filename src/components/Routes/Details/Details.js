@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import { Item } from 'semantic-ui-react';
+import { Card, Image } from 'semantic-ui-react';
+import 'semantic-ui-css/semantic.min.css';
+import { FormHelperText } from '@material-ui/core';
 //import images from ''
 
 const styles = theme => ({
@@ -38,7 +40,7 @@ class Details extends Component {
     let info = this.props.reduxStore.movieDetails;
 
     return (
-      <>
+      <div style={{display: 'flex', justifyContent: 'center', marginTop: '5vh'}} >
         <div>
           <Button
             variant="contained"
@@ -58,18 +60,23 @@ class Details extends Component {
           </Button>
         </div>
 
-        <div className="App">
+        <div>
+          <Card style={{backgroundColor: 'skyblue', width: '80vh', height: '85vh'}}>
+            <Card.Header> <h1> {info.title}</h1></Card.Header>
+            <Card.Content>
+              <Image src={info.poster} alt="image" />
+              <h1>Genre</h1>
+              <h4>{info.genre_name}</h4>
+              <Card.Description style={{display: 'inline-block', justifyContent: 'center'}}>
+                <h1>Description</h1>
+                <p style={{wordBreak: 'break-word', hyphens:'auto'}}>{info.description}</p>
+              </Card.Description>
 
-          <h1>Title</h1>
-          <p> {info.title}</p>
-          <h1>Genre</h1>
-          <h5>{info.genre_name}</h5>
-          <h1>Description</h1>
-          <p className='detailDescription'>{info.description}</p>
-          <img src={info.poster} alt="image" />
+            </Card.Content>
+          </Card>
 
         </div>
-      </>
+      </div>
     );
   }
 }
