@@ -46,6 +46,7 @@ background-color: skyblue
 }
 
 .movieTitle {
+  display: inline-block;
   font-size: 25px;
   font-weight: 900;
   font-style: oblique
