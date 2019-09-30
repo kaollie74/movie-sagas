@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import '../App/App.css'
-import {Card, Image} from 'semantic-ui-react';
+
+import { Card, Image } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
+import '../App/App.css';
 
 
 
@@ -36,16 +37,28 @@ class Home extends Component {
 
           {this.props.reduxStore.movieList.map(item => {
             return (
-              <Card 
-              className="movieImage" 
-              key={item.id}
+              <Card
+                className="movieImage"
+                key={item.id}
+                style={{backgroundColor: 'skyblue'}}
               >
-                <Card.Header>{item.title}</Card.Header>
-                <Image className="imageDisplay" src={item.poster} alt="" onClick={(event) => this.nextPage(item)} />
-                <div className='detailDescription'>
-                <p >{item.description}</p>
-                </div>
-                
+                <Card.Content>
+                  <Card.Header className='movieTitle'>
+                    {item.title}
+                  </Card.Header>
+                  <Image
+                    className="imageDisplay"
+                    src={item.poster}
+                    alt=""
+                    onClick={(event) => this.nextPage(item)}
+                    wrapper ui = {false}
+                  />
+
+                  <Card.Description>
+                    {/* {item.description} */}
+                  </Card.Description>
+
+                </Card.Content>
               </Card>
             ) // end return 
 
